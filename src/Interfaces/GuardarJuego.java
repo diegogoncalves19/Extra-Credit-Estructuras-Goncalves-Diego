@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +25,7 @@ public class GuardarJuego extends javax.swing.JFrame {
     private int amistad;
     private int pokemonescogido;
     private long starttime;
+    private String regalosstring;
 
     /**
      * Creates new form GuardarJuego
@@ -93,6 +95,7 @@ public class GuardarJuego extends javax.swing.JFrame {
         menu.setPokemonescogido(getPokemonescogido());
         menu.setStarttime(getStarttime());
         menu.setTotaltime(getTotaltime());
+        menu.setRegalosstring(getRegalosstring());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
@@ -100,11 +103,12 @@ public class GuardarJuego extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         endtime = totaltime + (runendtime - starttime);
         
-        jTextArea1.setText(Integer.toString(watts) + "\n" + Integer.toString(regalos) + "\n" + Integer.toString(amistad) + "\n" + Integer.toString(pokemonescogido) + "\n" + String.valueOf(endtime));
+        jTextArea1.setText(Integer.toString(watts) + "\n" + Integer.toString(regalos) + "\n" + Integer.toString(amistad) + "\n" + Integer.toString(pokemonescogido) + "\n" + String.valueOf(endtime) + "\n" + regalosstring);
         
         try {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("src//archivotxt//datos.txt"))) {
                 writer.write(jTextArea1.getText());
+                JOptionPane.showMessageDialog(null, "Datos guardados con éxito.");
             }
         } catch (IOException ex) {
             Logger.getLogger(GuardarJuego.class.getName()).log(Level.SEVERE, null, ex);
@@ -244,6 +248,21 @@ public class GuardarJuego extends javax.swing.JFrame {
         this.starttime = starttime;
     }
 
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Volver;
     private javax.swing.JButton jButton1;

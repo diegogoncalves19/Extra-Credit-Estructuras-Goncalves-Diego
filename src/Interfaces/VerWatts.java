@@ -16,7 +16,8 @@ public class VerWatts extends javax.swing.JFrame {
     private int pokemonescogido;
     private long totaltime;
     private long starttime;
-
+    private String regalosstring;
+    
     /**
      * Creates new form VerWatts
      */
@@ -86,6 +87,7 @@ public class VerWatts extends javax.swing.JFrame {
         menu.setPokemonescogido(getPokemonescogido());
         menu.setStarttime(getStarttime());
         menu.setTotaltime(getTotaltime());
+        menu.setRegalosstring(getRegalosstring());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
@@ -207,6 +209,20 @@ public class VerWatts extends javax.swing.JFrame {
      */
     public void setStarttime(long starttime) {
         this.starttime = starttime;
+    }
+    
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,7 +11,8 @@ package Interfaces;
  */
 public class Inicio extends javax.swing.JFrame {
     
-    private int amistad = 0;
+    private int amistad = 3000;
+    private int pokemonescogido = 0;
     long starttime = System.currentTimeMillis();
 
     /**
@@ -103,10 +104,11 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JuegoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoNuevoActionPerformed
-        MenuPrincipal menu = new MenuPrincipal();
-        menu.setAmistad(getAmistad());
-        menu.setStarttime(getStarttime());
-        menu.setVisible(true);
+        EscogerP escoger = new EscogerP();
+        escoger.setAmistad(getAmistad());
+        escoger.setStarttime(getStarttime());
+        escoger.setPokemonescogido(getPokemonescogido());
+        escoger.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_JuegoNuevoActionPerformed
 
@@ -193,6 +195,20 @@ public class Inicio extends javax.swing.JFrame {
      */
     public void setStarttime(long starttime) {
         this.starttime = starttime;
+    }
+    
+    /**
+     * @return the pokemonescogido
+     */
+    public int getPokemonescogido() {
+        return pokemonescogido;
+    }
+
+    /**
+     * @param pokemonescogido the pokemonescogido to set
+     */
+    public void setPokemonescogido(int pokemonescogido) {
+        this.pokemonescogido = pokemonescogido;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

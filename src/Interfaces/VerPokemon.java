@@ -16,6 +16,7 @@ public class VerPokemon extends javax.swing.JFrame {
     private int pokemonescogido;
     private long totaltime;
     private long starttime;
+    private String regalosstring;
 
     /**
      * Creates new form VerPokemon
@@ -36,9 +37,10 @@ public class VerPokemon extends javax.swing.JFrame {
 
         Volver = new javax.swing.JButton();
         EstadoAmistad = new javax.swing.JLabel();
-        Regalos = new javax.swing.JLabel();
         NumeroAmistad = new javax.swing.JLabel();
         MostrarStats = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Regalos = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,17 +57,13 @@ public class VerPokemon extends javax.swing.JFrame {
         });
         getContentPane().add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, -1));
 
-        EstadoAmistad.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        EstadoAmistad.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         EstadoAmistad.setText("Ver estado del pokémon:");
-        getContentPane().add(EstadoAmistad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 580, -1));
+        getContentPane().add(EstadoAmistad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 580, -1));
 
-        Regalos.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        Regalos.setText("Ver lista de regalos:");
-        getContentPane().add(Regalos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 460, -1));
-
-        NumeroAmistad.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        NumeroAmistad.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         NumeroAmistad.setText("Ver puntos de amistad:");
-        getContentPane().add(NumeroAmistad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 580, -1));
+        getContentPane().add(NumeroAmistad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 580, -1));
 
         MostrarStats.setBackground(new java.awt.Color(253, 202, 7));
         MostrarStats.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -78,7 +76,16 @@ public class VerPokemon extends javax.swing.JFrame {
         });
         getContentPane().add(MostrarStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/9.png"))); // NOI18N
+        Regalos.setBackground(new java.awt.Color(170, 209, 250));
+        Regalos.setColumns(20);
+        Regalos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        Regalos.setRows(5);
+        Regalos.setText("Ver lista de regalos:");
+        jScrollPane1.setViewportView(Regalos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 510, 140));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
@@ -92,6 +99,7 @@ public class VerPokemon extends javax.swing.JFrame {
         menu.setPokemonescogido(getPokemonescogido());
         menu.setStarttime(getStarttime());
         menu.setTotaltime(getTotaltime());
+        menu.setRegalosstring(getRegalosstring());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
@@ -101,7 +109,7 @@ public class VerPokemon extends javax.swing.JFrame {
             amistad -= 1;
         }
         NumeroAmistad.setText("Su valor actual de relación es " + amistad + " de amistad.");
-        Regalos.setText("Los regalos que tiene el pokemon son ");
+        Regalos.setText("Los regalos que tiene el pokemon son " + regalosstring);
         if (amistad <= 2000) {
             EstadoAmistad.setText("Su estado emocional es Sigh.");
         }
@@ -237,13 +245,28 @@ public class VerPokemon extends javax.swing.JFrame {
     public void setTotaltime(long totaltime) {
         this.totaltime = totaltime;
     }
+    
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EstadoAmistad;
     private javax.swing.JButton MostrarStats;
     private javax.swing.JLabel NumeroAmistad;
-    private javax.swing.JLabel Regalos;
+    private javax.swing.JTextArea Regalos;
     private javax.swing.JButton Volver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

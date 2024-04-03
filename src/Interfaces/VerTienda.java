@@ -18,6 +18,7 @@ public class VerTienda extends javax.swing.JFrame {
     private int pokemonescogido;
     private long totaltime;
     private long starttime;
+    private String regalosstring;
 
     /**
      * Creates new form VerTienda
@@ -97,12 +98,14 @@ public class VerTienda extends javax.swing.JFrame {
 
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
         MenuPrincipal menu = new MenuPrincipal();
+        System.out.println(regalosstring);
         menu.setWatts(getWatts());
         menu.setRegalos(getRegalos());
         menu.setAmistad(getAmistad());
         menu.setPokemonescogido(getPokemonescogido());
         menu.setStarttime(getStarttime());
         menu.setTotaltime(getTotaltime());
+        menu.setRegalosstring(getRegalosstring());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
@@ -161,6 +164,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Aranja" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -174,6 +178,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Caquic" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -187,6 +192,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Pokeball" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -200,6 +206,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Zreza" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -213,6 +220,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Zanama" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -226,6 +234,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Ziuela" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -239,6 +248,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Zidra" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -252,6 +262,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Baya Enigma" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -265,6 +276,7 @@ public class VerTienda extends javax.swing.JFrame {
                     setRegalos(regalos);
                     setAmistad(amistad);
                     setWatts(watts);
+                    regalosstring += "Caramelo raro" + "\n";
                     JOptionPane.showMessageDialog(null, "Item comprado con éxito.");
                 }
             }
@@ -357,6 +369,21 @@ public class VerTienda extends javax.swing.JFrame {
     public void setStarttime(long starttime) {
         this.starttime = starttime;
     }
+    
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ComprarItem;

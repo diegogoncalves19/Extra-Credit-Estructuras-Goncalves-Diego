@@ -97,6 +97,7 @@ public class CargarJuego extends javax.swing.JFrame {
             totaltime = Long.parseLong(datoslista[4]);
             menu.setTotaltime(totaltime);
             menu.setStarttime(starttime);
+            menu.setRegalosstring(datoslista[5]);
             JOptionPane.showMessageDialog(null, "Datos cargados con éxito.");
             menu.setVisible(true);
             this.setVisible(false);

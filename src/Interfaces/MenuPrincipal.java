@@ -13,13 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
     
-    private int watts = 0;
-    private int regalos = 0;
+    private int watts = 1000;
+    private int regalos = 2;
     private int amistad;
-    private int pokemonescogido = 1;
+    private int pokemonescogido;
     private long totaltime;
     private long starttime;
-
+    private String regalosstring = "";
+    
     /**
      * Creates new form MenuPrincipal
      */
@@ -128,8 +129,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sprites/triste.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 270, 240));
+        jLabel2.setBackground(new java.awt.Color(51, 51, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/abstract-surface-textures-white-concrete-stone-wall_74190-8189-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 270, 240));
 
         Revisar.setBackground(new java.awt.Color(253, 202, 7));
         Revisar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -157,6 +159,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tiempo.setPokemonescogido(getPokemonescogido());
         tiempo.setTotaltime(getTotaltime());
         tiempo.setStarttime(getStarttime());
+        tiempo.setRegalosstring(getRegalosstring());
         tiempo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_TiempoActionPerformed
@@ -167,15 +170,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No tienes suficiente regalos para jugar. Necesitas al menos 2.");
         }
         else{
-            JugarCartas jugar = new JugarCartas();
-            jugar.setWatts(getWatts());
-            jugar.setRegalos(getRegalos());
-            jugar.setAmistad(getAmistad());
-            jugar.setPokemonescogido(getPokemonescogido());
-            jugar.setTotaltime(getTotaltime());
-            jugar.setStarttime(getStarttime());
-            jugar.setVisible(true);
-            this.setVisible(false);
+            if (pokemonescogido == 1) {
+                JugarCartas jugar = new JugarCartas();
+                jugar.setWatts(getWatts());
+                jugar.setRegalos(getRegalos());
+                jugar.setAmistad(getAmistad());
+                jugar.setPokemonescogido(getPokemonescogido());
+                jugar.setTotaltime(getTotaltime());
+                jugar.setStarttime(getStarttime());
+                jugar.setRegalosstring(getRegalosstring());
+                jugar.setVisible(true);
+                this.setVisible(false);
+            }
+            else if (pokemonescogido == 3) {
+                JugarAdivinar jugar = new JugarAdivinar();
+                jugar.setWatts(getWatts());
+                jugar.setRegalos(getRegalos());
+                jugar.setAmistad(getAmistad());
+                jugar.setPokemonescogido(getPokemonescogido());
+                jugar.setTotaltime(getTotaltime());
+                jugar.setStarttime(getStarttime());
+                jugar.setRegalosstring(getRegalosstring());
+                jugar.setVisible(true);
+                this.setVisible(false);
+            }
         }
     }//GEN-LAST:event_JugarMinijuegosActionPerformed
 
@@ -188,6 +206,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         guardar.setPokemonescogido(getPokemonescogido());
         guardar.setTotaltime(getTotaltime());
         guardar.setStarttime(getStarttime());
+        guardar.setRegalosstring("nada");
         guardar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_GuardarJuegoActionPerformed
@@ -201,6 +220,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         vwatt.setPokemonescogido(getPokemonescogido());
         vwatt.setStarttime(getStarttime());
         vwatt.setTotaltime(getTotaltime());
+        vwatt.setRegalosstring(getRegalosstring());
         vwatt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VerWattsActionPerformed
@@ -214,6 +234,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tienda.setPokemonescogido(getPokemonescogido());
         tienda.setTotaltime(getTotaltime());
         tienda.setStarttime(getStarttime());
+        tienda.setRegalosstring(getRegalosstring());
         tienda.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VerTiendaActionPerformed
@@ -227,6 +248,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pokemon.setPokemonescogido(getPokemonescogido());
         pokemon.setStarttime(getStarttime());
         pokemon.setTotaltime(getTotaltime());
+        pokemon.setRegalosstring(getRegalosstring());
         pokemon.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VerPokemonActionPerformed
@@ -238,28 +260,51 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_VolverActionPerformed
 
     private void RevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RevisarActionPerformed
-        
-        if (amistad <= 2000) {
-            ImageIcon imagen = new ImageIcon("src//sprites//triste.png");
-            jLabel2.setIcon(imagen);
+
+        if (pokemonescogido == 1) {        
+            if (amistad <= 2000) {
+                ImageIcon imagen = new ImageIcon("src//spritespikachu//triste.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 2000 && amistad <= 4000) {
+                ImageIcon imagen = new ImageIcon("src//spritespikachu//enojado.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 4000 && amistad <= 6000) {
+                ImageIcon imagen = new ImageIcon("src//spritespikachu//normal.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 6000 && amistad <= 8000) {
+                ImageIcon imagen = new ImageIcon("src//spritespikachu//feliz.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 8000) {
+                ImageIcon imagen = new ImageIcon("src//spritespikachu//inspirado.png");
+                jLabel2.setIcon(imagen);
+            }
         }
-        else if (amistad > 2000 && amistad <= 4000) {
-            ImageIcon imagen = new ImageIcon("src//sprites//enojado.png");
-            jLabel2.setIcon(imagen);
+        else if (pokemonescogido == 3) {
+            if (amistad <= 2000) {
+                ImageIcon imagen = new ImageIcon("src//spritespachirisu//durmiendo2.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 2000 && amistad <= 4000) {
+                ImageIcon imagen = new ImageIcon("src//spritespachirisu//molesto1.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 4000 && amistad <= 6000) {
+                ImageIcon imagen = new ImageIcon("src//spritespachirisu//normal1.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 6000 && amistad <= 8000) {
+                ImageIcon imagen = new ImageIcon("src//spritespachirisu//feliz1.png");
+                jLabel2.setIcon(imagen);
+            }
+            else if (amistad > 8000) {
+                ImageIcon imagen = new ImageIcon("src//spritespachirisu//inspirado1.png");
+                jLabel2.setIcon(imagen);
+            }            
         }
-        else if (amistad > 4000 && amistad <= 6000) {
-            ImageIcon imagen = new ImageIcon("src//sprites//normal.png");
-            jLabel2.setIcon(imagen);
-        }
-        else if (amistad > 6000 && amistad <= 8000) {
-            ImageIcon imagen = new ImageIcon("src//sprites//feliz.png");
-            jLabel2.setIcon(imagen);
-        }
-        else if (amistad > 8000) {
-            ImageIcon imagen = new ImageIcon("src//sprites//inspirado.png");
-            jLabel2.setIcon(imagen);
-        }
-        
     }//GEN-LAST:event_RevisarActionPerformed
 
     /**
@@ -379,6 +424,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public void setStarttime(long starttime) {
         this.starttime = starttime;
+    }
+    
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

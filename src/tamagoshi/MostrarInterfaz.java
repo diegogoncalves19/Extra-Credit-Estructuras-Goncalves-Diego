@@ -20,7 +20,6 @@ public class MostrarInterfaz {
      */
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {        
 
-        
         String filepath = "2-14 Friendly Shop.wav";
         PonerMusica musica = new PonerMusica();
         musica.TocarMusica(filepath);

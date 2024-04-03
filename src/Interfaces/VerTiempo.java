@@ -17,7 +17,8 @@ public class VerTiempo extends javax.swing.JFrame {
     private long totaltime;
     private long currenttime;
     private long starttime;
-
+    private String regalosstring;
+    
     /**
      * Creates new form Tiempo
      */
@@ -83,6 +84,7 @@ public class VerTiempo extends javax.swing.JFrame {
         menu.setPokemonescogido(getPokemonescogido());
         menu.setStarttime(getStarttime());
         menu.setTotaltime(getTotaltime());
+        menu.setRegalosstring(getRegalosstring());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
@@ -210,6 +212,20 @@ public class VerTiempo extends javax.swing.JFrame {
      */
     public void setStarttime(long starttime) {
         this.starttime = starttime;
+    }
+
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
     }    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -19,7 +19,8 @@ public class JugarCartas extends javax.swing.JFrame {
     private int pokemonescogido;
     private long totaltime;
     private long starttime;
-
+    private String regalosstring;
+    
     /**
      * Creates new form JugarMinijuegos
      */
@@ -99,6 +100,7 @@ public class JugarCartas extends javax.swing.JFrame {
         menu.setPokemonescogido(getPokemonescogido());
         menu.setStarttime(getStarttime());
         menu.setTotaltime(getTotaltime());
+        menu.setRegalosstring(getRegalosstring());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
@@ -106,7 +108,7 @@ public class JugarCartas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int wattsapostados = (int) jSpinner1.getValue();
         
-        EscogerCarta(wattsapostados, getPokemonescogido(), getWatts(), getAmistad());
+        EscogerCarta(wattsapostados, getWatts(), getAmistad());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -144,11 +146,8 @@ public class JugarCartas extends javax.swing.JFrame {
         });
     }
     
-    public void EscogerCarta(int wattsapostados, int pokemonescogido, int watts, int amistad){
-        if (pokemonescogido == 3) {
-            JOptionPane.showMessageDialog(null, "No tiene este pokemon todavía.");
-        }
-        else if (wattsapostados > watts) {
+    public void EscogerCarta(int wattsapostados, int watts, int amistad){
+        if (wattsapostados > watts) {
             JOptionPane.showMessageDialog(null, "No tienes los suficientes watts para apostar.");
         }
         else{
@@ -277,6 +276,20 @@ public class JugarCartas extends javax.swing.JFrame {
         this.starttime = starttime;
     }
 
+    /**
+     * @return the regalosstring
+     */
+    public String getRegalosstring() {
+        return regalosstring;
+    }
+
+    /**
+     * @param regalosstring the regalosstring to set
+     */
+    public void setRegalosstring(String regalosstring) {
+        this.regalosstring = regalosstring;
+    }  
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Volver;
     private javax.swing.JButton jButton1;
